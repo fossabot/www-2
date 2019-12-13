@@ -9,6 +9,7 @@ git fetch --all || exit
 temporaryDirectory="$(mktemp -d)";
 cp -rT ./dist/ "$temporaryDirectory/";
 cd "$temporaryDirectory";
+rm .placeholder
 git init
 git checkout --orphan live || exit
 git add --all
