@@ -13,7 +13,7 @@ cp -r ./dist/ "$temporaryDirectory/";
 git checkout --orphan live || exit
 git rm --cached -r .
 rm -r ./*
-cp -rT "$temporaryDirectory/" ./
+cp -rT "$temporaryDirectory/dist/" ./
 git add --all
 git commit -m "Travis CI $TRAVIS_COMMIT"
 git push
