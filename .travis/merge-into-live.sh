@@ -7,14 +7,14 @@ git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* || exit
 git fetch --all || exit
 
 temporaryDirectory="$(mktemp -d)";
-cp -R ./dist/ "$temporaryDirectory/";
+cp -r ./dist/ "$temporaryDirectory/";
 
 
 git checkout --orphan live || exit
 git rm --cached -r .
-cp -R "$temporaryDirectory/" ./
-ls ./
-git add "./dist/**/*"
+rm -r ./*
+cp -rT "$temporaryDirectory/" ./
+git add --all
 git commit -m "Travis CI $TRAVIS_COMMIT"
 git push
 
