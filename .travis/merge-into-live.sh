@@ -1,10 +1,5 @@
 #!/bin/bash
 
-if [ "$TRAVIS_BRANCH" != "develop" ]; then
-    # We don't want to end in an infinite loop.
-    exit 0;
-fi
-
 export GIT_COMMITTER_EMAIL="travis@travis"
 export GIT_COMMITTER_NAME="Travis CI"
 
